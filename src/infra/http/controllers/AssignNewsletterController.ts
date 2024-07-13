@@ -14,7 +14,7 @@ export default class AssingNewsletterController {
     const assignNewsletterUseCase = container.resolve(AssignNewsletter);
     const { email } = req.body;
 
-    const subscriberId = await assignNewsletterUseCase.execute({ email });
-    return res.status(201).json({ subscriberId });
+    await assignNewsletterUseCase.execute({ email });
+    return res.status(201);
   }
 }
